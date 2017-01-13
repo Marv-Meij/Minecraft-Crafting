@@ -1,0 +1,199 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+/* Directive CSS */
+
+.animate-show {
+    &.ng-hide-fade {
+        opacity: 0;
+        transition: 0s all linear;
+        -webkit-transition: 0s all linear;
+    }
+
+    &.ng-show {
+        opacity: 1;
+        transition: 0.2s all linear;
+        -webkit-transition: 0.2s all linear;
+    }
+}
+
+/* Header */
+
+.bar-header {
+	/* original 64px*/
+	height: 44px !important;
+}
+
+.bar-header > * {
+	margin-top: 20px !important;
+}
+
+.scroll-content{
+	top: 0 !important
+}
+
+.previous-image {
+	position: absolute;
+	z-index: -1; 
+}
+
+h2.ng-binding {
+	padding: 15px 0px 5px 0px;
+}
+
+h3 {
+	float: left;
+    clear: both;
+    width: 100%;
+}
+
+/* Top view content when scrolling*/
+
+.topview {
+    position: relative;
+    top: 0px;
+    z-index: -1;
+    width: 100%;
+    margin: -10px auto 0px auto;
+    background-color: #c6c6c6;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.5);
+    opacity: 0;
+}
+
+.topview2 {
+    position: relative;
+    z-index: 2 !important;
+}
+
+.centertopview {
+    padding: 44px 0px 10px 0px;
+    width: 300px;
+    margin: 0px auto 0px auto;
+}
+
+.centertopview h4 {
+    text-align: center;
+    padding: 15px 0px 5px 0px;
+}
+
+.imagepositionleft {
+    position: relative;
+    left: 0px;
+}
+
+.imagepositionright {
+    position: relative;
+    top: -20px;
+    right: -30px;
+}
+
+/* Content */
+
+.main {
+	background-image: url(../img/app/stone.png);
+	background-repeat: repeat;
+	background-size: 160px 160px;
+	background-color: #c6c6c6;
+}
+
+.header.bar.bar-header {
+	background-image: url(../img/app/dirt-grass.jpg);
+	background-repeat: repeat-x;
+	background-size: 100px 80px;
+	background-position: top;
+}
+
+.bar.bar-header {
+	border-bottom-width: 0px;
+}
+
+.tophalf {
+    min-height: 150px;
+    width: 90%;
+    margin: 64px auto -1px auto;
+    text-align: center;
+    background-color: #c6c6c6;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+}
+
+.box {
+	min-height: 150px;
+	width: 350px;
+	margin: 0 auto;
+}
+
+.box img {
+	margin-top: 0px;
+}
+
+.imageleft {
+	position: relative;
+	left: -15px;
+}
+
+.box .imageright {
+    position: relative;
+    left: -2px;
+    bottom: 17px;
+}
+
+.bottomhalf {
+	margin: 0px auto 25px auto;
+	min-height: 350px;
+    background-color: #c6c6c6;
+}
+
+.row {
+	width: 90% !important;
+    padding: 25px 10px 25px 10px !important;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 0px 0px 0px 8px;
+}
+
+.items {
+    float: left;
+}
+
+.itemborder {
+    background-image: url(../img/app/inventory_box.png);
+    background-repeat: no-repeat;
+    background-size: 54px 58px;
+    margin: 0px 2px 0px 2px;
+    padding: 7px 7px 7px 7px;
+}
+
+.itemborder img {
+    margin-left: 0px;
+}
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
