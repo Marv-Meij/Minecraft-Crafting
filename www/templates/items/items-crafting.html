@@ -1,0 +1,43 @@
+<ion-view ng-controller="CraftingCtrl" hide-back-button="true">
+	<ion-nav-bar class="header slideanimation"></ion-nav-bar>
+	<div class="topview animate-show" fade-in-change>
+		<div class="centertopview">
+			<h4>{{ imageName }}</h4>
+			<img ng-src="{{ imageBuild }}" height="100px" class="imagepositionleft animate-show" fade-in-change/>
+			<img class="imagepositionright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
+		</div>
+	</div>
+	<ion-content delegate-handle="handler" class="main" scroll-watch>
+		<div class="tophalf">
+			<div class="box">
+				<h2>{{ imageName }}</h2>
+				<img ng-src="{{ imageBuild }}" height="100px" class="imageleft animate-show" fade-in-change/>
+				<img class="imageright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
+			</div>
+		</div>
+		<div class="row bottomhalf">
+			<div class="wrapper">
+				<h3>Basic</h3>
+				<div class="items" ng-repeat="basic in model.basicItems">
+					<div class="itemborder">
+						<img ng-src="{{ basic.icon }}" on-tap="onTap('{{basic.title}}', '{{ basic.buildImage }}', '{{ basic.image }}')" height="40px" alt="{{basic.title}}" />
+					</div>
+				</div>
+
+				<h3>Tools</h3>
+				<div class="items" ng-repeat="tool in model.tools.basicTools">
+					<div class="itemborder">
+						<img ng-src="{{ tool.icon }}" on-tap="onTap('{{tool.title}}', '{{ tool.buildImage }}', '{{ tool.image }}')" height="40px" alt="{{tool.title}}" />
+					</div>
+				</div>
+
+				<h3 is-visible>Blocks</h3>
+				<div class="items" ng-repeat="block in model.blocks.basicBlocks">
+					<div class="itemborder">
+						<img ng-src="{{ block.icon }}" on-tap="onTap('{{block.title}}', '{{ block.buildImage }}', '{{ block.image }}')" height="40px" alt="{{block.title}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

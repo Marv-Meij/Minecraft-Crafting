@@ -1,9 +1,9 @@
 var app = angular.module('minecraft-crafting.controllers.items', ['ngAnimate']);
 
 /*********************************************************************
- * ItemsCtrl
+ * CraftingCtrl
  *********************************************************************/
-app.controller('ItemsCtrl', function ($scope, $state, $ionicScrollDelegate, $window) {
+app.controller('CraftingCtrl', function ($scope, $state, $ionicScrollDelegate, $window) {
 
 	var basic = $scope.model = {
 		showDelete: false,
@@ -474,7 +474,59 @@ app.controller('ItemsCtrl', function ($scope, $state, $ionicScrollDelegate, $win
 		$scope.imageBuild = imageBuild;
 		$scope.image = image;
 
-		$ionicScrollDelegate.$getByHandle('handler').scrollBy(0, 1, true);
+		$ionicScrollDelegate.$getByHandle('handler').scrollBy(0, 0.005, true);
+
+		$scope.onTap.called = true;
+	};
+});
+
+app.controller('BrewingCtrl', function ($scope, $state, $ionicScrollDelegate, $window) {
+
+	var basic = $scope.model = {
+		showDelete: false,
+		showMove: false,
+		basicBrews: [
+			{
+				'title': 'Wooden planks',
+				'image': 'img/items/img_wood.png',
+				'buildImage': 'img/items/craft_wood.gif',
+				'icon': 'img/icons/img_wood_icon.png'
+			}
+		]
+	};
+
+	$scope.onTap = function(name,imageBuild,image) {
+		$scope.imageName = name;
+		$scope.imageBuild = imageBuild;
+		$scope.image = image;
+
+		$ionicScrollDelegate.$getByHandle('handler').scrollBy(0, 0.005, true);
+
+		$scope.onTap.called = true;
+	};
+});
+
+app.controller('OtherCtrl', function ($scope, $state, $ionicScrollDelegate, $window) {
+
+	var basic = $scope.model = {
+		showDelete: false,
+		showMove: false,
+		basicBrews: [
+			{
+				'title': 'Stick',
+				'image': 'img/items/img_stick.png',
+				'buildImage': 'img/items/craft_stick.png',
+				'icon': 'img/icons/img_stick_icon.png'
+			}
+		]
+	};
+
+	$scope.onTap = function(name,imageBuild,image) {
+		$scope.imageName = name;
+		$scope.imageBuild = imageBuild;
+		$scope.image = image;
+
+		$ionicScrollDelegate.$getByHandle('handler').scrollBy(0, 0.005, true);
 
 		$scope.onTap.called = true;
 	};
@@ -503,18 +555,39 @@ app.directive('scrollWatch', function() {
 	return {
 		restrict: 'A',
 		link: function($scope, elem, attr) {
-
-			$(".topview").appendTo(".pane");
-			var myEl = angular.element( document.querySelector( '.topview' ) );
+			
+			var myTopview = angular.element( document.querySelector( '.topview' ) );
+			var myHeader = angular.element( document.querySelector( 'ion-header-bar' ) );
 
 			elem.bind('scroll', function(e) {
-				if (e.detail.scrollTop >= 210 && $scope.onTap.called == true) {
-					myEl.addClass('ng-show');
-					myEl.addClass('topview2');
+				var top = 215;
+				var scroll = e.detail.scrollTop;
+
+				elem.bind('scroll', function(e) {
+					var currentScroll = e.detail.scrollTop;
+					if (currentScroll > top) {
+						if (currentScroll > scroll) {
+							myHeader.addClass('closeheader');
+						} else if (currentScroll < scroll) {
+							myHeader.removeClass('closeheader');
+						}
+					}
+					scroll = currentScroll;
+				});
+
+				if (scroll >= 216 && $scope.onTap.called) {
+					if (scroll > position) {
+						myTopview.removeClass('topview3');
+					} else if (scroll < position) {
+						myTopview.addClass('topview3');
+					}
+					myTopview.addClass('ng-show');
+					myTopview.addClass('topview2');
 				} else {
-					myEl.removeClass('ng-show');
-					myEl.removeClass('topview2');
+					myTopview.removeClass('ng-show');
+					myTopview.removeClass('topview2');
 				}
+				position = scroll;
 			});
 		}
 	}  

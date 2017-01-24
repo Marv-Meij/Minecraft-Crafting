@@ -1,42 +1,13 @@
-<ion-view hide-back-button="true">
-	<div class="topview animate-show" fade-in-change>
-		<div class="centertopview">
-			<h4>{{ imageName }}</h4>
-			<img ng-src="{{ imageBuild }}" height="100px" class="imagepositionleft animate-show" fade-in-change/>
-			<img class="imagepositionright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
-		</div>
-	</div>
-	<ion-content delegate-handle="handler" class="main" scroll-sista scroll-watch>
-		<div class="tophalf">
-			<div class="box">
-				<h2>{{ imageName }}</h2>
-				<img ng-src="{{ imageBuild }}" height="100px" class="imageleft animate-show" fade-in-change/>
-				<img class="imageright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
-			</div>
-		</div>
-		<div class="row bottomhalf">
-			<div class="wrapper">
-				<h3>Basic</h3>
-				<div class="items" ng-repeat="basic in model.basicItems">
-					<div class="itemborder">
-						<img ng-src="{{ basic.icon }}" on-tap="onTap('{{basic.title}}', '{{ basic.buildImage }}', '{{ basic.image }}')" height="40px" alt="{{basic.title}}" />
-					</div>
-				</div>
+<ion-tabs class="tabs-icon-only tabs-background-dark tabs-color-light">
+	<ion-tab class="compass" ui-sref="items.crafting">
+		<ion-nav-view name="items-crafting"></ion-nav-view>
+	</ion-tab>
 
-				<h3>Tools</h3>
-				<div class="items" ng-repeat="tool in model.tools.basicTools">
-					<div class="itemborder">
-						<img ng-src="{{ tool.icon }}" on-tap="onTap('{{tool.title}}', '{{ tool.buildImage }}', '{{ tool.image }}')" height="40px" alt="{{tool.title}}" />
-					</div>
-				</div>
+	<ion-tab class="waterbottle" ui-sref="items.brewing">
+		<ion-nav-view name="items-brewing"></ion-nav-view>
+	</ion-tab>
 
-				<h3 is-visible>Blocks</h3>
-				<div class="items" ng-repeat="block in model.blocks.basicBlocks">
-					<div class="itemborder">
-						<img ng-src="{{ block.icon }}" on-tap="onTap('{{block.title}}', '{{ block.buildImage }}', '{{ block.image }}')" height="40px" alt="{{block.title}}" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</ion-content>
-</ion-view>
+	<ion-tab class="other" ui-sref="items.other">
+		<ion-nav-view name="items-other"></ion-nav-view>
+	</ion-tab>
+</ion-tabs>

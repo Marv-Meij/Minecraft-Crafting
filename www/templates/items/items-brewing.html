@@ -1,0 +1,29 @@
+<ion-view ng-controller="BrewingCtrl"  hide-back-button="true">
+	<ion-nav-bar class="header slideanimation"></ion-nav-bar>
+	<div class="topview animate-show" fade-in-change>
+		<div class="centertopview">
+			<h4>{{ imageName }}</h4>
+			<img ng-src="{{ imageBuild }}" height="100px" class="imagepositionleft animate-show" fade-in-change/>
+			<img class="imagepositionright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
+		</div>
+	</div>
+	<ion-content delegate-handle="handler" class="main" scroll-watch>
+		<div class="tophalf">
+			<div class="box">
+				<h2>{{ imageName }}</h2>
+				<img ng-src="{{ imageBuild }}" height="100px" class="imageleft animate-show" fade-in-change/>
+				<img class="imageright animate-show" ng-src="{{ image }}" height="60px" fade-in-change/>
+			</div>
+		</div>
+		<div class="row bottomhalf">
+			<div class="wrapper">
+				<h3>Brews</h3>
+				<div class="items" ng-repeat="brews in model.basicBrews">
+					<div class="itemborder">
+						<img ng-src="{{ brews.icon }}" on-tap="onTap('{{brews.title}}', '{{ brews.buildImage }}', '{{ brews.image }}')" height="40px" alt="{{brews.title}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

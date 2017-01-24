@@ -23,12 +23,47 @@ app.run(function ($ionicPlatform) {
 app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
 	$ionicConfigProvider.scrolling.jsScrolling(true);
+	$ionicConfigProvider.tabs.position("bottom");
 
 	$stateProvider
+
 		.state('items', {
-			url: '/items',
-			templateUrl: 'templates/items.html',
-			controller: 'ItemsCtrl'
+			url: "/items",
+			abstract: false,
+			templateUrl: "templates/items.html"
+		})
+
+		.state('items.crafting', {
+			url: "/crafting",
+			cache: false,
+			views: {
+				'items-crafting': {
+					templateUrl: 'templates/items/items-crafting.html',
+					controller: 'CraftingCtrl'
+				}
+			}
+		})
+
+		.state('items.brewing', {
+			url: "/brewing",
+			cache: false,
+			views: {
+				'items-brewing': {
+					templateUrl: 'templates/items/items-brewing.html',
+					controller: 'BrewingCtrl'
+				}
+			}
+		})
+
+		.state('items.other', {
+			url: "/other",
+			cache: false,
+			views: {
+				'items-other': {
+					templateUrl: 'templates/items/items-other.html',
+					controller: 'OtherCtrl'
+				}
+			}
 		})
 	;
 

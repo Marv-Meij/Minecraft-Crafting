@@ -15,6 +15,48 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+/* Tabs */
+
+.waterbottle.tab-item.tab-item-active {
+    background-image: url(../img/app-icon/waterbottle.png);
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    background-position: center;
+}
+
+.waterbottle.tab-item {
+    background-image: url(../img/app-icon/waterbottle-empty.png);
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    background-position: center;
+}
+
+.compass.tab-item.tab-item-active {
+    background-image: url(../img/app-icon/compass.png);
+    background-repeat: no-repeat;
+    background-size: 32px 28px;
+    background-position: center;
+}
+
+.compass.tab-item {
+    background-image: url(../img/app-icon/compass-inactive.png);
+    background-repeat: no-repeat;
+    background-size: 32px 28px;
+    background-position: center;
+}
+
+.tab-nav.tabs {
+    background-image: url(../img/app/bedrock.png) !important;
+    background-repeat: repeat-x;
+    background-size: 70px 70px;
+    background-position: top;
+    background-blend-mode: soft-light;
+}
+
+.tabs-color-light .tab-item.tab-item-active, .tabs-color-light .tab-item.active, .tabs-color-light .tab-item.activated {
+    border: none !important;
+}
+
 /* Directive CSS */
 
 .animate-show {
@@ -31,7 +73,26 @@ $dark:                            #444 !default;
     }
 }
 
+.slideanimation.closeheader {
+    max-height: 0px;
+}
+
+.slideanimation.openheader {
+    max-height: 44px;
+}
+
+.slideanimation {
+    overflow-y: hidden;
+    max-height: 44px;
+    transition-property: all;
+    transition-duration: .2s;
+}
+
 /* Header */
+
+.bar {
+    padding: 0px !important;
+}
 
 .bar-header {
 	/* original 64px*/
@@ -43,7 +104,8 @@ $dark:                            #444 !default;
 }
 
 .scroll-content{
-	top: 0 !important
+    top: 0 !important;
+	bottom: 0 !important;
 }
 
 .previous-image {
@@ -81,8 +143,14 @@ h3 {
     z-index: 2 !important;
 }
 
+.topview3 {
+    position: relative;
+    top: 44px;
+}
+
 .centertopview {
-    padding: 44px 0px 10px 0px;
+    // padding: 44px 0px 10px 0px;
+    padding: 5px 0px 10px 0px;
     width: 300px;
     margin: 0px auto 0px auto;
 }
@@ -136,7 +204,7 @@ h3 {
 }
 
 .box {
-	min-height: 150px;
+	min-height: 170px;
 	width: 350px;
 	margin: 0 auto;
 }
